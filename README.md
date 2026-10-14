@@ -1,3 +1,6 @@
+Deployed App link: https://piimasking1.streamlit.app/
+Precaution: APP IS LAUNCHED ON FREE TRAILS OF STREAMLIT & IBM QUANTUM EITHER TOKENS ARE FINISHED APP MAY NOT WORK.
+
 # Smart Data Masking System for PII & Financial Protection
 > **Dynamic Query-Time PII Masking with AST Lineage, Quantum Entropy (QRNG), and NIST FIPS 204 Post-Quantum Signed Auditing**
 
