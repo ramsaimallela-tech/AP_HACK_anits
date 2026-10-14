@@ -1,0 +1,10 @@
+streamlit>=1.30.0
+pandas>=2.0.0
+sqlglot>=20.0.0
+python-dotenv>=1.0.0
+cryptography>=41.0.0
+qiskit>=1.0.0
+qiskit-aer>=0.13.0
+qiskit-ibm-runtime>=0.25.0
+dilithium-py>=0.1.0
+kyber-py>=0.1.0
