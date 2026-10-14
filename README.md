@@ -1,6 +1,3 @@
-Deployed App link: https://piimasking1.streamlit.app/
-Precaution: APP IS LAUNCHED ON FREE TRAILS OF STREAMLIT & IBM QUANTUM EITHER TOKENS ARE FINISHED APP MAY NOT WORK.
-
 # Smart Data Masking System for PII & Financial Protection
 > **Dynamic Query-Time PII Masking with AST Lineage, Quantum Entropy (QRNG), and NIST FIPS 204 Post-Quantum Signed Auditing**
 
@@ -175,23 +172,74 @@ Contains tables modeled after real core-banking schemas:
 
 ## 🖥️ Streamlit Dashboard Walkthrough
 
-When you run `streamlit run streamlit_app.py`, the dashboard provides 5 comprehensive tabs plus a sidebar control panel:
+The interactive Streamlit dashboard (`streamlit run streamlit_app.py` or hosted at [piimasking1.streamlit.app](https://piimasking1.streamlit.app)) provides a comprehensive multi-tab interface demonstrating query-time masking, physical immutability, automated sensitivity cataloging, and post-quantum audit verification:
 
-1. **Query Engine:**
-   * Run custom or preset SQL queries.
-   * Toggle between **Admin**, **Support**, and **Analyst** roles in the sidebar to see dynamic masking in action.
-   * Colored cell highlights indicate partial masks (yellow), hashes (blue), or redactions (red).
-2. **Compare Roles:**
-   * Runs the active SQL query simultaneously across Admin, Support, and Analyst views, displaying results side-by-side.
-3. **Raw Database & Integrity:**
-   * Displays the physical SHA-256 database dump checksum.
-   * Inspect underlying tables directly to prove that raw stored data remains completely unchanged.
-4. **PII Scanner Catalog:**
-   * Shows all scanned database columns, detected types, confidence percentages, assigned sensitivity tags, and reasoning explanations.
-   * Includes a "Re-scan Database" button.
-5. **Post-Quantum Audit Log:**
-   * Displays the append-only audit log with normalized SQL queries.
-   * Click **"Verify Complete Hash Chain & ML-DSA Signatures"** to cryptographically verify the integrity of every entry.
-6. **Sidebar Quantum Panel:**
-   * Click **"Rotate Key with IBM Quantum / Aer"** to re-generate quantum entropy.
-   * Expand **Quantum Provenance Details** to view backend name, qubit count, circuit depth, and sample quantum bitstreams.
+### 1. Query Engine
+* Run custom or preset SQL queries with dynamic query execution.
+* Toggle between **Admin**, **Support**, and **Analyst** roles in the sidebar to see dynamic masking in action.
+* Highlights cell policies: partial masks (yellow), HMAC deterministic hashes (blue), and complete redactions (pink/red).
+* Includes live Quantum Entropy sidebar showing the active SHA3-256 seed, quantum bit samples, and the 8-qubit Hadamard gate circuit diagram.
+
+![Streamlit Query Engine Output](screenshots/streamlit_query_engine.png)
+
+---
+
+### 2. Compare Roles Side-by-Side
+* Concurrently executes the exact same SQL statement across **Admin**, **Support**, and **Analyst** roles.
+* Demonstrates **Admin** cleartext visibility, **Support** operational masking (preserving formats and contact domains), and **Analyst** non-reversible redaction/keyed hashing.
+
+![Compare Roles Side-by-Side](screenshots/streamlit_compare_roles.png)
+
+---
+
+### 3. Raw Database & Physical Storage Integrity
+* Displays the deterministic **SHA-256 database integrity checksum** calculated over the underlying database.
+* Proves physical immutability: the database connection is held strictly in read-only mode (`mode=ro`), guaranteeing that underlying records are never altered by masking operations.
+
+![Physical Storage Verification](screenshots/streamlit_raw_database_integrity.png)
+
+---
+
+### 4. Automated PII & Financial Sensitivity Catalog
+* Shows real-time heuristic scanning of database tables and schemas.
+* Lists columns, data types, sensitivity tags (`PII_HIGH`, `PII_MEDIUM`, `FINANCIAL_CONFIDENTIAL`, `NON_SENSITIVE`), detection confidence percentages, and heuristic reasoning (Luhn checks, IBAN mod-97, Verhoeff, regex, token heuristics).
+
+![Automated PII Catalog](screenshots/streamlit_pii_scanner_catalog.png)
+
+---
+
+### 5. Tamper-Evident Post-Quantum Audit Log
+* Append-only ledger recording all executed queries with literal normalization (preventing predicate leakage).
+* Each block contains the SHA3-256 hash of the preceding block and is cryptographically signed using **NIST FIPS 204 (ML-DSA-65 / CRYSTALS-Dilithium)**.
+* Includes one-click complete verification of the hash chain and post-quantum digital signatures.
+
+![Post-Quantum Audit Log](screenshots/streamlit_post_quantum_audit_log.png)
+
+---
+
+## ⚛️ IBM Quantum Platform Results & Hardware Execution
+
+The system generates true quantum entropy by executing quantum circuits on real quantum hardware hosted on the **IBM Quantum Platform** (e.g. `ibm_kingston`, `ibm_fez`).
+
+### 1. Quantum Hardware Workload & Measurement Outcomes
+* **Job ID:** `db7h5dur6oqs7387iod0`
+* **Target Backend:** `ibm_kingston` (IBM Quantum Cloud open instance, US-East)
+* **Program:** Sampler Primitive Unified Blocks (PUBs)
+* **Execution Status:** Completed (2s execution time)
+* **Entropy Distribution:** True uniform quantum collapse across 8-qubit measurement registers ($c$) with 32 shots yielding non-deterministic bitstrings used to seed the post-quantum hashing pipeline.
+
+![IBM Quantum Platform Workload Status & Sampler Outcomes](screenshots/ibm_quantum_workload_results.png)
+
+### 2. Transpiled Quantum Circuit & Qiskit Runtime Verification
+* Circuit diagram showing the Hadamard superposition state $|\psi\rangle = H^{\otimes 8}|0\rangle$ transpiled to native basis gates ($RZ(\frac{\pi}{2})$, $\sqrt{X}$, $RZ(\frac{\pi}{2})$) and measurement operators targeting classical register `c8`.
+* Executable via **Qiskit Runtime Service**:
+  ```python
+  from qiskit_ibm_runtime import QiskitRuntimeService
+
+  service = QiskitRuntimeService(channel="ibm_quantum_platform")
+  job = service.job("db7h5dur6oqs7387iod0")
+  job_result = job.result()
+  ```
+
+![IBM Quantum Circuit Diagram & Qiskit Runtime](screenshots/ibm_quantum_circuit_diagram.png)
+

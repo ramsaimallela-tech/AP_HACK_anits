@@ -1,0 +1,708 @@
+[
+  {
+    "table": "accounts",
+    "column": "id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "accounts",
+    "column": "account_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "accounts",
+    "column": "customer_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "accounts",
+    "column": "iban",
+    "sql_type": "TEXT",
+    "detector": "iban",
+    "tag": "FINANCIAL_CONFIDENTIAL",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'iban'",
+      "100% of sample rows matched iban format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "accounts",
+    "column": "account_number",
+    "sql_type": "TEXT",
+    "detector": "account_number",
+    "tag": "FINANCIAL_CONFIDENTIAL",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'account_number'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "accounts",
+    "column": "card_number",
+    "sql_type": "TEXT",
+    "detector": "card",
+    "tag": "PII_HIGH",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'card_number'",
+      "100% of sample rows matched card format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "accounts",
+    "column": "balance",
+    "sql_type": "REAL",
+    "detector": "balance",
+    "tag": "FINANCIAL_CONFIDENTIAL",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'balance'",
+      "100% of sample rows matched balance format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "numeric"
+    }
+  },
+  {
+    "table": "accounts",
+    "column": "currency",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "accounts",
+    "column": "account_type",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "accounts",
+    "column": "opened_at",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "cards",
+    "column": "id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "cards",
+    "column": "customer_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "cards",
+    "column": "card_number",
+    "sql_type": "TEXT",
+    "detector": "card",
+    "tag": "PII_HIGH",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'card_number'",
+      "100% of sample rows matched card format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "cards",
+    "column": "card_type",
+    "sql_type": "TEXT",
+    "detector": "card",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.105,
+    "status": "auto",
+    "reasons": [
+      "column tokens contain weak hint 'card'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 0.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "cards",
+    "column": "expiry",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "cards",
+    "column": "holder_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'holder_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "customers",
+    "column": "customer_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "customers",
+    "column": "first_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'first_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "last_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'last_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "full_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'full_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "email",
+    "sql_type": "TEXT",
+    "detector": "email",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'email'",
+      "100% of sample rows matched email format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "phone",
+    "sql_type": "TEXT",
+    "detector": "phone",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'phone'",
+      "100% of sample rows matched phone format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "ssn",
+    "sql_type": "TEXT",
+    "detector": "ssn",
+    "tag": "PII_HIGH",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'ssn'",
+      "100% of sample rows matched ssn format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "dob",
+    "sql_type": "TEXT",
+    "detector": "dob",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'dob'",
+      "100% of sample rows matched dob format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "address",
+    "sql_type": "TEXT",
+    "detector": "address",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'address'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "city",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "customers",
+    "column": "country",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "customers",
+    "column": "notes",
+    "sql_type": "TEXT",
+    "detector": "ssn",
+    "tag": "PII_HIGH",
+    "confidence": 0.836,
+    "status": "auto",
+    "reasons": [
+      "88% of sample rows matched ssn format"
+    ],
+    "evidence": {
+      "name_match": false,
+      "value_ratio": 0.88,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "ssn_verified",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "Column is boolean flag / verification decoy."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "customers",
+    "column": "contact",
+    "sql_type": "TEXT",
+    "detector": "email",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.95,
+    "status": "auto",
+    "reasons": [
+      "100% of sample rows matched email format"
+    ],
+    "evidence": {
+      "name_match": false,
+      "value_ratio": 1.0,
+      "samples_count": 50,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "customers",
+    "column": "created_at",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "mock_users",
+    "column": "id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "mock_users",
+    "column": "first_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'first_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 200,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "mock_users",
+    "column": "last_name",
+    "sql_type": "TEXT",
+    "detector": "person_name",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.6,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'last_name'"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": null,
+      "samples_count": 200,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "mock_users",
+    "column": "email",
+    "sql_type": "TEXT",
+    "detector": "email",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'email'",
+      "100% of sample rows matched email format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 200,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "mock_users",
+    "column": "gender",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "mock_users",
+    "column": "ip_address",
+    "sql_type": "TEXT",
+    "detector": "ip_address",
+    "tag": "PII_MEDIUM",
+    "confidence": 0.98,
+    "status": "auto",
+    "reasons": [
+      "column name exactly matches strong hint 'ip_address'",
+      "100% of sample rows matched ip_address format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 200,
+      "type_category": "text"
+    }
+  },
+  {
+    "table": "transactions",
+    "column": "id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "transactions",
+    "column": "txn_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "transactions",
+    "column": "account_id",
+    "sql_type": "INTEGER",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "transactions",
+    "column": "amount",
+    "sql_type": "REAL",
+    "detector": "balance",
+    "tag": "FINANCIAL_CONFIDENTIAL",
+    "confidence": 0.968,
+    "status": "auto",
+    "reasons": [
+      "column tokens contain weak hint 'amount'",
+      "100% of sample rows matched balance format"
+    ],
+    "evidence": {
+      "name_match": true,
+      "value_ratio": 1.0,
+      "samples_count": 120,
+      "type_category": "numeric"
+    }
+  },
+  {
+    "table": "transactions",
+    "column": "merchant",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "transactions",
+    "column": "ts",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  },
+  {
+    "table": "transactions",
+    "column": "txn_date",
+    "sql_type": "TEXT",
+    "detector": "none",
+    "tag": "NON_SENSITIVE",
+    "confidence": 0.0,
+    "status": "auto",
+    "reasons": [
+      "No PII characteristics exceeded confidence threshold."
+    ],
+    "evidence": {}
+  }
+]
